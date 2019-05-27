@@ -17,7 +17,7 @@ For simplicity server supports only one client.
 
 | Overview  |  
 |--|
-| [![][preview1]](https://www.youtube.com/watch?v=ACZ2bZECRfE) |
+| [![][preview1]](https://there-is-no-video-yet) |
 
 ## Client
 Client sends request to server each 1/TimeUpdateDelay. Request contains client local time.
