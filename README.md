@@ -47,4 +47,4 @@ Server increases his local tick count. When he receives request from client - he
 - Unity 2019.1
 - ENet CSharp 2.2.6 
 
-[preview1]: https://i.imgur.com/Ry6S9a4.png
+[preview1]: https://i.imgur.com/8JITQfe.png
