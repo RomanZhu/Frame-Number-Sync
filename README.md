@@ -20,7 +20,7 @@ For simplicity server supports only one client.
 | [![][preview1]](https://there-is-no-video-yet) |
 
 ## Client
-Client sends request to server each 1/TimeUpdateDelay. Request contains client local time.
+Client sends request to server 1/TimeUpdateDelay times per second. Request contains client local time.
 
 When he recieves response - he finds delta between local time and first float in the packet. 
 That delta is added to second float in the packet, then resulting time is increased on each update.
