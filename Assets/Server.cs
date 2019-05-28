@@ -110,14 +110,18 @@ public class Server : MonoBehaviour
     {
         _currentLocalTime = GetLocalTime() - _offsetTime;
 
+        var neededFrame = (int) (_currentLocalTime / Delta);
         //That way predicted tick count will match actual tick count
-        if ((int) (_currentLocalTime / Delta) < _tick)
+        if (neededFrame < _tick)
         {
             Logger.I.Log(this, "Skipped frame");
         }
         else
         {
-            _tick++;
+            while (neededFrame>_tick)
+            {
+                _tick++;
+            }
         }
     }
 
