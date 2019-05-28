@@ -27,6 +27,15 @@ That delta is added to second float in the packet, then resulting time is increa
 From that approximation client calculates count of ticks which happend on the server.
 Client modifies his tick frequency to smoothly reach approximated tick value. 
 
+#### Idea for more advanced approximation (Will try to implement in the future)
+Client keeps smooth delta averege and spikes counter.
+ 
+If new delta is close to or less than averege and new calculated approximation is close to predicted approximation, then predicted value is not updated with new approximation. After that delta averege is updated with new delta, spikes counter is reduced.
+
+If new delta is bigger by significant amount, then that update is skipped entirely, but spikes counter is increased.
+
+When spikes counter reaches certain value, client will set smooth delta averege to be equal to last spike's delta and predicted approximation to be equal to last spike's calculated approximation.
+
 ### Fields
 - IP - Client will try to connect to that IP.
 - Max Ticks Behind - If current tick is less than approximated tick by more than that value, then tick will be snapped to approximated tick.
