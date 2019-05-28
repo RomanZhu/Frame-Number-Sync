@@ -27,7 +27,8 @@ That delta is added to second float in the packet, then resulting time is increa
 From that approximation client calculates count of ticks which happend on the server.
 Client modifies his tick frequency to smoothly reach approximated tick value. 
 
-#### Idea for more advanced approximation (Will try to implement in the future)
+#### Ideas for more advanced approximation (Will try to implement in the future)
+##### 1
 Client keeps smooth delta averege and spikes counter.
  
 If new delta is close to or less than averege and new calculated approximation is close to predicted approximation, then predicted value is not updated with new approximation. After that delta averege is updated with new delta, spikes counter is reduced.
@@ -35,6 +36,14 @@ If new delta is close to or less than averege and new calculated approximation i
 If new delta is bigger by significant amount, then that update is skipped entirely, but spikes counter is increased.
 
 When spikes counter reaches certain value, client will set smooth delta averege to be equal to last spike's delta and predicted approximation to be equal to last spike's calculated approximation.
+##### 2
+In that implementation only server will send his local time to clients with specified frequency.
+Client can utilize ENet.Peer's RTT value to understand how far behind he is generally.
+
+When client receives first packet with server time, he will add RTT/2 to it and store local time and offset(RTT/2).
+When client receives next packets, he will calculate delta between current local time and last stored local time, then total time will be equal to receivedTime + offset + delta. Then local time is stored again.
+
+In that approach the most important part is getting correct RTT value at first packet. 
 
 ### Fields
 - IP - Client will try to connect to that IP.
