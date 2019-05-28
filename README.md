@@ -17,7 +17,7 @@ For simplicity server supports only one client.
 
 | Overview  |  
 |--|
-| [![][preview1]](https://there-is-no-video-yet) |
+| [![][preview1]](https://www.youtube.com/watch?v=tZppqKbpuL4) |
 
 ## Client
 Client sends request to server 1/TimeUpdateDelay times per second. Request contains client local time.
@@ -65,4 +65,4 @@ Server increases his local tick count. When he receives request from client - he
 - Unity 2019.1
 - ENet CSharp 2.2.6 
 
-[preview1]: https://i.imgur.com/8JITQfe.png
+[preview1]: https://i.imgur.com/tzS55KM.png
